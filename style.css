@@ -34,7 +34,7 @@
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
   font-family: var(--font-sans);
-  background: var(--ivory);
+  background: var(--charcoal);
   color: var(--charcoal);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -581,8 +581,8 @@ section { padding: 6rem 0; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  gap: 1.8rem;
+  flex-wrap: nowrap;
 }
 .trust-item {
   display: flex;
