@@ -31,10 +31,35 @@
   startTimer();
 })();
 
-// Nav scroll
+// Nav scroll + hide on scroll down / show on scroll up
 const nav = document.getElementById('nav');
+let lastScrollY = 0;
+let ticking = false;
+
 window.addEventListener('scroll', () => {
-  nav?.classList.toggle('scrolled', window.scrollY > 40);
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const currentY = window.scrollY;
+      nav?.classList.toggle('scrolled', currentY > 40);
+
+      // Only hide after scrolled past 80px to avoid flickering at the top
+      if (currentY > 80) {
+        if (currentY > lastScrollY + 6) {
+          // Scrolling down — hide
+          nav?.classList.add('nav--hidden');
+        } else if (currentY < lastScrollY - 4) {
+          // Scrolling up — show
+          nav?.classList.remove('nav--hidden');
+        }
+      } else {
+        nav?.classList.remove('nav--hidden');
+      }
+
+      lastScrollY = currentY;
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
 
 // Mobile nav drawer

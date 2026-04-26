@@ -215,6 +215,14 @@ section { padding: 6rem 0; }
 .nav__dropdown-menu a:hover { background: rgba(196,154,108,0.15); color: var(--sage); }
 
 .nav__cta { margin-left: 1rem; }
+
+/* Hide-on-scroll behaviour */
+.nav {
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), background 0.3s;
+}
+.nav.nav--hidden {
+  transform: translateY(-100%);
+}
 .nav__hamburger {
   display: none;
   flex-direction: column;
@@ -1509,7 +1517,7 @@ footer {
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .intro-split { grid-template-columns: 1fr; gap: 3rem; }
-  .intro-split__box { aspect-ratio: 16/9; }
+  .intro-split__box { aspect-ratio: 8/9; }
   .visit-split { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
 }
